@@ -1,7 +1,7 @@
 type: api
 version: v4.5.0
 data:
-  id: 2e6981c0-7c7f-4d8c-91c6-1feec1932de3
+  id: c8d9925f-ad3a-4ca4-90a9-944bb0af1b34
   name: PizzaShackAPI
   description: This is a simple API for Pizza Shack online pizza delivery store.
   context: /pizzashack
@@ -12,8 +12,9 @@ data:
   cacheTimeout: 300
   hasThumbnail: false
   isDefaultVersion: false
-  isRevision: false
-  revisionId: 0
+  isRevision: true
+  revisionedApiId: 52d56f19-02b9-4d9c-8dc8-8ea26555f4c0
+  revisionId: 2
   enableSchemaValidation: false
   enableSubscriberVerification: false
   type: HTTP
@@ -27,6 +28,7 @@ data:
   policies:
    - Unlimited
   organizationPolicies: []
+  apiThrottlingPolicy: 50KPerMin
   authorizationHeader: Authorization
   apiKeyHeader: ApiKey
   securityScheme:
@@ -36,7 +38,7 @@ data:
   visibleRoles: []
   visibleTenants: []
   visibleOrganizations:
-   - carbon.super
+   - none
   mediationPolicies: []
   subscriptionAvailability: CURRENT_TENANT
   subscriptionAvailableTenants: []
@@ -73,9 +75,9 @@ data:
     secret: ""
     signingAlgorithm: SHA1
     signatureHeader: x-hub-signature
-  createdTime: "1745299957276"
-  lastUpdatedTimestamp: "1745299957521"
-  lastUpdatedTime: 2025-04-22 11:02:37.521
+  createdTime: "1745549829735"
+  lastUpdatedTimestamp: "1745549829735"
+  lastUpdatedTime: 2025-04-25 08:27:09.735
   endpointConfig:
     endpoint_type: http
     sandbox_endpoints:
@@ -96,7 +98,13 @@ data:
     scopes: []
     usedProductIds: []
     operationPolicies:
-      request: []
+      request:
+       -
+        policyName: addLogMessage
+        policyVersion: v1
+        policyType: common
+        policyId: 813466c8-8b99-4f08-8672-b89acee03ff0
+        parameters: {}
       response: []
       fault: []
    -
@@ -108,7 +116,13 @@ data:
     scopes: []
     usedProductIds: []
     operationPolicies:
-      request: []
+      request:
+       -
+        policyName: addLogMessage
+        policyVersion: v1
+        policyType: common
+        policyId: 813466c8-8b99-4f08-8672-b89acee03ff0
+        parameters: {}
       response: []
       fault: []
    -
@@ -120,7 +134,13 @@ data:
     scopes: []
     usedProductIds: []
     operationPolicies:
-      request: []
+      request:
+       -
+        policyName: addLogMessage
+        policyVersion: v1
+        policyType: common
+        policyId: 813466c8-8b99-4f08-8672-b89acee03ff0
+        parameters: {}
       response: []
       fault: []
    -
@@ -132,7 +152,13 @@ data:
     scopes: []
     usedProductIds: []
     operationPolicies:
-      request: []
+      request:
+       -
+        policyName: addLogMessage
+        policyVersion: v1
+        policyType: common
+        policyId: 813466c8-8b99-4f08-8672-b89acee03ff0
+        parameters: {}
       response: []
       fault: []
    -
@@ -144,7 +170,13 @@ data:
     scopes: []
     usedProductIds: []
     operationPolicies:
-      request: []
+      request:
+       -
+        policyName: addLogMessage
+        policyVersion: v1
+        policyType: common
+        policyId: 813466c8-8b99-4f08-8672-b89acee03ff0
+        parameters: {}
       response: []
       fault: []
   categories: []

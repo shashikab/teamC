@@ -304,8 +304,9 @@ components:
         implicit:
           authorizationUrl: https://test.com
           scopes: {}
-x-wso2-auth-header: Authorization
 x-wso2-api-key-header: ApiKey
+x-wso2-auth-header: Authorization
+x-throttling-tier: 50KPerMin
 x-wso2-cors:
   corsConfigurationEnabled: false
   accessControlAllowOrigins:

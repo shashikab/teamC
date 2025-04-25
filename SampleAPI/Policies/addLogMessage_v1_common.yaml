@@ -1,0 +1,17 @@
+type: operation_policy_specification
+version: v4.5.0
+data:
+  category: Mediation
+  name: addLogMessage
+  version: v1
+  displayName: Log Policy
+  description: This policy allows you to log the important details of the request
+  applicableFlows:
+   - request
+   - response
+   - fault
+  supportedGateways:
+   - Synapse
+  supportedApiTypes:
+   - HTTP
+  policyAttributes: []
