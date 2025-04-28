@@ -20,6 +20,46 @@ pipeline {
             }
         }
 
+        stage('Ensure Node.js') {
+            steps {
+                echo "Ensuring Node.js is installed via Homebrew..."
+                sh '''
+                    if ! command -v node >/dev/null; then
+                      echo "Node.js not found; installing via Homebrew..."
+                      brew update
+                      brew install node
+                    else
+                      echo "Node.js already installed: $(node -v)"
+                    fi
+                '''
+            }
+        }
+
+        stage('Lint API Spec') {
+            steps {
+                echo "🔍 Running Spectral lint via npx…"
+                sh '''
+                    # Install nvm if needed
+                    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+                    export NVM_DIR="$HOME/.nvm"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                    nvm install 18.18.0
+                    nvm use 18.18.0
+
+                    # Verify ruleset exists
+                    if [ ! -f "$RULESET" ]; then
+                      echo "Error: .spectral.yml file not found at $RULESET"
+                      exit 1
+                    fi
+
+                    # Run Spectral lint
+                    npx @stoplight/spectral-cli@6 lint "$SPEC_PATH" \
+                      --ruleset "$RULESET" \
+                      --fail-severity error
+                '''
+            }
+        }
+
         stage('Install apictl') {
             steps {
                 echo "Installing the apictl tool..."
